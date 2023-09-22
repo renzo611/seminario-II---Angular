@@ -1,0 +1,36 @@
+<div class="container mt-3">
+  <h2>Listado de Tareas</h2>
+
+  <li class="list-group-item pt-1 pb-1">
+    <div class="input-group d-flex align-items-center">
+      <button class="btn btn-outline-success" (click)="agregarNuevaTarea()">+</button>
+      <input type="text" class="form-control filtro-input" id="filtroTitulo" name="filtroTitulo" [(ngModel)]="filtro.titulo" (input)="filtrarPorTitulo()" />
+      <select class="form-select" id="filtroUsuario" name="filtroUsuario" [(ngModel)]="filtro.usuario" (change)="filtrarPorContacto()">
+        <option value="">Todos los usuarios</option>
+        <option *ngFor="let usuario of listaDeContactos" [value]="usuario.nombre">{{ usuario.nombre }}</option>
+      </select>
+    </div>
+  </li>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>Usuario Asignado</th>
+        <th>Fecha de Inicio</th>
+        <th>Fecha de Fin</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tarea of tareasFiltradas">
+        <td>{{ tarea.id }}</td>
+        <td>{{ tarea.titulo }}</td>
+        <td>{{ tarea.descripcion }}</td>
+        <td>{{ tarea.usuarioAsignado }}</td>
+        <td>{{ tarea.fechaInicio | date:'dd/MM/yyyy' }}</td>
+        <td>{{ tarea.fechaFin | date:'dd/MM/yyyy' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,33 @@
+<div class="container mt-3">
+    <h2>Listado de Contactos</h2>
+    <li class="list-group-item pt-1 pb-1">
+        <div class="input-group">
+            <button class="btn btn-outline-success" (click)="agregarContacto()">
+                +
+            </button>
+        </div>
+    </li>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contacto of contactos">
+          <td>{{ contacto.id }}</td>
+          <td>{{ contacto.nombre }}</td>
+          <td>{{ contacto.email }}</td>
+          <td>{{ contacto.telefono }}</td>
+          <td>
+            <button class="btn btn-primary btn-sm me-3" (click)="editarContacto(contacto)">Editar</button>
+            <button class="btn btn-danger btn-sm" (click)="eliminarContacto(contacto.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

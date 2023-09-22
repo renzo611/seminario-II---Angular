@@ -1,0 +1,46 @@
+<mat-toolbar>
+  <span class="spacer"></span>
+  <button class="btn btn-danger" (click)="cerrarDialogo()">
+    <span class="glyphicon glyphicon-remove"></span> Cerrar
+  </button>
+</mat-toolbar>
+
+<form class="m-3" #form="ngForm" (ngSubmit)="submitForm()">
+  <fieldset>
+    <legend>Complete los datos para la tarea</legend>
+
+    <div class="mb-3">
+      <label for="txtNombre" class="form-label">Titulo:</label>
+      <input type="text" class="form-control" id="txtNombre" name="txtNombre" #titulo="ngModel"
+             [(ngModel)]="tarea.titulo" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripción:</label>
+      <textarea class="form-control" id="descripcion" name="descripcion" #descripcion="ngModel"
+                [(ngModel)]="tarea.descripcion" required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="fechaInicio" class="form-label">Fecha de inicio:</label>
+      <input type="text" class="form-control" id="fechaInicio" name="fechaInicio"
+             [(ngModel)]="tarea.fechaInicio" [value]="fechaActual" disabled />
+    </div>
+
+    <div class="mb-3">
+      <label for="fechaFin" class="form-label">Fecha de entrega:</label>
+      <input type="date" class="form-control" id="fechaFin" name="fechaFin"
+             [(ngModel)]="tarea.fechaFin" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="usuarioAsignado" class="form-label">Usuario Asignado:</label>
+      <select class="form-select" id="usuarioAsignado" name="usuarioAsignado" [(ngModel)]="tarea.usuarioAsignado" required>
+        <option value="">Selecciona un usuario</option>
+        <option *ngFor="let contacto of listaDeContactos" [value]="contacto.nombre">{{ contacto.nombre }}</option>
+      </select>
+    </div>
+
+    <button [disabled]="form.invalid" class="btn btn-success w-100">Agregar</button>
+  </fieldset>
+</form>

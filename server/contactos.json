@@ -1,0 +1,16 @@
+{
+  "contactos": [
+    {
+      "nombre": "Renzo Gabriel Fajardo ",
+      "email": "fajardogary664@gmail.com",
+      "telefono": "3825413369",
+      "id": 2
+    },
+    {
+      "nombre": "asd",
+      "email": "asd",
+      "telefono": "3825413369",
+      "id": 3
+    }
+  ]
+}

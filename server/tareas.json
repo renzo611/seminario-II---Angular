@@ -1,0 +1,52 @@
+{
+  "tareas": [
+    {
+      "fechaInicio": "2023-09-15T20:54:29.694Z",
+      "titulo": "Esta es una nueva tarea",
+      "descripcion": "asdasdasda",
+      "usuarioAsignado": "1",
+      "fechaFin": "2023-09-29",
+      "id": 1
+    },
+    {
+      "fechaInicio": "2023-09-15T20:55:31.939Z",
+      "titulo": "asdadsa",
+      "descripcion": "asdasd",
+      "usuarioAsignado": "Renzo Fajardo",
+      "fechaFin": "2023-09-22",
+      "id": 2
+    },
+    {
+      "fechaInicio": "2023-09-15T21:03:19.455Z",
+      "titulo": "Esta es una nueva tarea",
+      "descripcion": "asdasda",
+      "usuarioAsignado": "Renzo Fajardo",
+      "fechaFin": "2023-09-29",
+      "id": 3
+    },
+    {
+      "fechaInicio": "2023-09-15T21:03:52.287Z",
+      "titulo": "dasda",
+      "descripcion": "asdadas",
+      "usuarioAsignado": "Renzo Fajardo",
+      "fechaFin": "2023-09-22",
+      "id": 4
+    },
+    {
+      "fechaInicio": "2023-09-22T02:32:49.620Z",
+      "titulo": "Descripcion",
+      "descripcion": "Descripcion",
+      "fechaFin": "2023-09-29",
+      "usuarioAsignado": "Renzo Gabriel Fajardo ",
+      "id": 5
+    },
+    {
+      "fechaInicio": "2023-09-22T02:33:57.676Z",
+      "titulo": "asdada",
+      "descripcion": "3e",
+      "usuarioAsignado": "asd",
+      "fechaFin": "2023-09-30",
+      "id": 6
+    }
+  ]
+}
