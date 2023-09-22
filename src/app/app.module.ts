@@ -16,6 +16,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { EditarContactoComponent } from './components/editar-contacto/editar-contacto.component';
+import { RegistroComponent } from './components/registro/registro.component';
+import { AuthComponent } from './components/auth/auth.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { EditarContactoComponent } from './components/editar-contacto/editar-con
     CrearContactosComponent,
     ListarTareasComponent,
     AgregarTareaComponent,
-    EditarContactoComponent
+    EditarContactoComponent,
+    RegistroComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

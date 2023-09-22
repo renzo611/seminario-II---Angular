@@ -1,0 +1,45 @@
+<div class="container mt-3">
+    <h2>Registro Reactivas</h2>
+    <hr>
+  
+    <div class="row">
+      <div class="col-md-6">
+        <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="submitFormulario()">
+  
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre del usuario">
+            <div class="form-text text-danger" *ngIf="campoNoValido('nombre')">Debe ser en formato de nombre y apellido</div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email" placeholder="Email del usuario">
+            <div class="form-text text-danger">{{ emailErrorMsg }}</div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" formControlName="username" placeholder="Nombre código del usuario">
+            <div class="form-text text-danger" *ngIf="campoNoValido('username')">El username no puede ser strider</div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" formControlName="password" placeholder="Password de su cuenta">
+            <div class="form-text text-danger" *ngIf="campoNoValido('password')">La contraseña debe tener al menos 6 caracteres</div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="password2" class="form-label">Confirmar Password</label>
+            <input type="password" class="form-control" formControlName="password2" placeholder="Confirmar la contraseña">
+            <div class="form-text text-danger" *ngIf="campoNoValido('password2')">Las contraseñas no coinciden</div>
+          </div>
+  
+          <button class="btn btn-primary" [disabled]="!miFormulario.valid" type="submit">Guardar</button>
+  
+        </form>
+      </div>
+    </div>
+  </div>
+  

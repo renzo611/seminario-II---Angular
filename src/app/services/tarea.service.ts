@@ -7,7 +7,7 @@ import { Tarea } from '../models/tarea.model';
   providedIn: 'root'
 })
 export class TareaService {
-  private readonly url: string = "http://localhost:4000/tareas";
+  private readonly url: string = "http://localhost:3002/tareas";
 
   constructor(public http: HttpClient) { }
 
