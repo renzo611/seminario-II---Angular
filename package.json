@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently \"ng serve\" \"npm run server1\" \"npm run server2\" \"npm run server3\"",
+    "start": "concurrently \"ng serve -o\" \"npm run server1\" \"npm run server2\" \"npm run server3\"",
     "server1": "json-server --watch server/contactos.json --port 3001",
     "server2": "json-server --watch server/tareas.json --port 3002",
     "server3": "json-server --watch server/usuarios.json --port 3003",
