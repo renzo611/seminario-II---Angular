@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthModel } from 'src/app/models/auth.model';
-import { UsuarioService } from 'src/app/services/usuario.service';
 import { AuthService } from './auth.service';
 import { SweetAlertService } from 'src/app/services/sweet-alert.service';
 import { AuthResponse } from 'src/app/models/auth_response.model';

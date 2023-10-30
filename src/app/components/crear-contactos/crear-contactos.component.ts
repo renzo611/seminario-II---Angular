@@ -28,7 +28,7 @@ export class CrearContactosComponent {
           this.dialogoService.abrirDialogoNuevaTarea(false);
         },
         error: (err) => {
-          this.sweetAlertService.showErrorAlert('Error al registrar un nuevo contacto', '', () => {});
+          this.sweetAlertService.showErrorAlert('Error al registrar un nuevo contacto', '');
         }
       });
     }
