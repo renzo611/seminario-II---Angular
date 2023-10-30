@@ -30,6 +30,9 @@
         <td>{{ tarea.contactName }}</td>
         <td>{{ tarea.startDate | date:'dd/MM/yyyy' }}</td>
         <td>{{ tarea.endDate | date:'dd/MM/yyyy' }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="eliminarTarea(tarea.id)">Eliminar</button>
+        </td>
       </tr>
     </tbody>
   </table>

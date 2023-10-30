@@ -38,6 +38,7 @@ export class AuthComponent {
         next: (value: AuthResponse) => {
           this.authService.setCredentials(value);
           this.router.navigate(['/contactos']);
+          window.location.reload();
         },
         error: (err) => {
           if (err.error.code === 403) {

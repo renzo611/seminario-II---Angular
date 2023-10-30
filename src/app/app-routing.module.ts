@@ -5,6 +5,7 @@ import { ListarTareasComponent } from './components/listar-tareas/listar-tareas.
 import { RegistroComponent } from './components/registro/registro.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { AuthGuard } from './guard/auth.guard';
+import { LoginGuard } from './guard/login.guard';
 
 
 const routes = [
@@ -15,10 +16,10 @@ const routes = [
     path: 'tareas' , component: ListarTareasComponent, canActivate: [AuthGuard]
   },
   {
-    path: 'registro', component: RegistroComponent
+    path: 'registro', component: RegistroComponent, canActivate: [LoginGuard]
   },
   {
-    path: 'login', component : AuthComponent
+    path: 'login', component : AuthComponent, canActivate: [LoginGuard]
   },
   {
     path: '**', redirectTo: 'login'

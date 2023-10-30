@@ -27,4 +27,9 @@ export class AuthService {
 
     return false;
   }
+
+  cerrarSesion(){
+    sessionStorage.removeItem('jwt');
+    sessionStorage.removeItem('id');
+  }
 }

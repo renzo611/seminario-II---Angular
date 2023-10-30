@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Tarea } from '../models/tarea.model';
+import { GeneralResponse } from '../models/general_response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,12 @@ export class TareaService {
     .set('Authorization', 'Bearer ' + jwt);
     tarea.userId = idNumber
     return this.http.post(`${this.url}/create`,tarea, { headers });
+  }
+
+  eliminarTarea(id: number) {
+    const jwt = sessionStorage.getItem('jwt');
+    const headers = new HttpHeaders()
+    .set('Authorization', 'Bearer ' + jwt);
+    return this.http.delete<GeneralResponse>(`${this.url}/${id}`, { headers });
   }
 }

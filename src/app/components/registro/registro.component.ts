@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { GeneralResponse } from 'src/app/models/general_response.model';
+import { Usuario } from 'src/app/models/usuario.model';
 import { EmailValidatorService } from 'src/app/services/email-validator.service';
+import { SweetAlertService } from 'src/app/services/sweet-alert.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import { ValidatorService } from 'src/app/services/validator.service';
 
 @Component({
@@ -31,7 +36,12 @@ export class RegistroComponent implements OnInit {
     validators: [ this.vs.camposIguales('password','password2')]
   })
 
-  constructor(private fb: FormBuilder, private vs : ValidatorService, private emailValidator : EmailValidatorService ){}
+  constructor(private readonly fb: FormBuilder, 
+              private readonly vs : ValidatorService, 
+              private readonly emailValidator : EmailValidatorService,
+              private readonly userService: UsuarioService,
+              private readonly sweetAlertService: SweetAlertService,
+              private readonly router: Router ){}
 
   ngOnInit(): void {
 
@@ -43,7 +53,21 @@ export class RegistroComponent implements OnInit {
   }
 
   submitFormulario(){
-    this.miFormulario.markAllAsTouched();
+    this.userService.guardarUsuario(new Usuario(
+      this.miFormulario.get('name')!.value,
+      this.miFormulario.get('email')!.value,
+      this.miFormulario.get('username')!.value,
+      this.miFormulario.get('password')!.value,
+    )).subscribe({
+      next: (response: GeneralResponse) => {
+        this.sweetAlertService.showSuccessAlert('Usuario registrado correctamente',() => {
+          this.router.navigate(['/login']);
+        });
+      },
+      error: (err) => {
+        this.sweetAlertService.showErrorAlert('Error', 'Hubo un error al intetar registrar al usuario');
+      }
+    });
   }
 
   

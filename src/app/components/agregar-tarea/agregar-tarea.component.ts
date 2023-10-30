@@ -35,10 +35,13 @@ export class AgregarTareaComponent implements OnInit {
       this.tareaService.addTarea(this.tarea).subscribe({
         next: (value: GeneralResponse) => {
           this.dialogoService.abrirDialogoNuevaTarea(false);
-          this.sweetAlertService.showSuccessAlert('Tarea creada con existo', () => {});
+          this.sweetAlertService.showSuccessAlert('Tarea creada con existo', () => {
+            window.location.reload();
+          });
+          this.cargarContactos();
         },
         error: (err) => {
-          this.sweetAlertService.showErrorAlert('Error al registrar una nueva tarea', '', () => {});
+          this.sweetAlertService.showErrorAlert('Error al registrar una nueva tarea', '');
         }
       });
     }
