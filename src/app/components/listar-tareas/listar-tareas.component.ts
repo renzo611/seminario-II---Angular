@@ -44,20 +44,17 @@ export class ListarTareasComponent{
 
   filtrarPorTitulo() {
     if(this.filtro.titulo.length > 2){
-      this.tareasFiltradas = this.listaTareas.filter(tarea => tarea.titulo.includes(this.filtro.titulo));
+      this.tareasFiltradas = this.listaTareas.filter(tarea => tarea.name.includes(this.filtro.titulo));
     }else{
       this.tareasFiltradas = [...this.listaTareas];
     }
   }
 
   filtrarPorContacto(){
-    console.log(this.filtro.usuario);
     if(this.filtro.usuario){
       this.tareasFiltradas = this.listaTareas.filter(tarea => {
-        console.log(tarea);
-        return tarea.usuarioAsignado === this.filtro.usuario
+        return tarea.contactName === this.filtro.usuario
       });
-      console.log(this.listaDeContactosFiltrados);
     }else{
       this.tareasFiltradas = [...this.listaTareas];
     }

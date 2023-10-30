@@ -4,6 +4,8 @@ import { TareaService } from 'src/app/services/tarea.service';
 import { DialogoService } from 'src/app/services/dialogo.service';
 import { Contacto } from 'src/app/models/contactos.model';
 import { ContactosService } from 'src/app/services/contactos.service';
+import { SweetAlertService } from 'src/app/services/sweet-alert.service';
+import { GeneralResponse } from 'src/app/models/general_response.model';
 
 @Component({
   selector: 'app-agregar-tarea',
@@ -13,29 +15,32 @@ import { ContactosService } from 'src/app/services/contactos.service';
 export class AgregarTareaComponent implements OnInit {
 
   tarea: Tarea = new Tarea();
-  tareas: Tarea[] = [];
   fechaActual!: string;
   listaDeContactos : Contacto[] = [];
 
   constructor(private tareaService: TareaService, 
               private dialogoService: DialogoService,
-              private contactosService : ContactosService) {}
+              private contactosService : ContactosService,
+              private readonly sweetAlertService: SweetAlertService) {}
 
 
   ngOnInit(): void {
-    this.tarea.fechaInicio = new Date();
-    this.fechaActual = this.tarea.fechaInicio.getDate() + '/' + (this.tarea.fechaInicio.getMonth() + 1) + '/' + this.tarea.fechaInicio.getFullYear();
+    this.tarea.startDate = new Date();
+    this.fechaActual = this.tarea.startDate.getDate() + '/' + (this.tarea.startDate.getMonth() + 1) + '/' + this.tarea.startDate.getFullYear();
     this.cargarContactos();
   }
 
   submitForm() {
-    console.log(this.tarea);
-    if (this.tarea.titulo.length > 2) {
-      this.tareaService.addTarea(this.tarea).subscribe(() => {
-        this.dialogoService.abrirDialogoNuevaTarea(false);
+    if (this.tarea.name.length > 2) {
+      this.tareaService.addTarea(this.tarea).subscribe({
+        next: (value: GeneralResponse) => {
+          this.dialogoService.abrirDialogoNuevaTarea(false);
+          this.sweetAlertService.showSuccessAlert('Tarea creada con existo', () => {});
+        },
+        error: (err) => {
+          this.sweetAlertService.showErrorAlert('Error al registrar una nueva tarea', '', () => {});
+        }
       });
-    } else {
-
     }
   }
 

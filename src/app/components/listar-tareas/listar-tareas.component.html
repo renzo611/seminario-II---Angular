@@ -7,7 +7,7 @@
       <input type="text" class="form-control filtro-input" id="filtroTitulo" name="filtroTitulo" [(ngModel)]="filtro.titulo" (input)="filtrarPorTitulo()" />
       <select class="form-select" id="filtroUsuario" name="filtroUsuario" [(ngModel)]="filtro.usuario" (change)="filtrarPorContacto()">
         <option value="">Todos los usuarios</option>
-        <option *ngFor="let usuario of listaDeContactos" [value]="usuario.nombre">{{ usuario.nombre }}</option>
+        <option *ngFor="let usuario of listaDeContactos" [value]="usuario.name">{{ usuario.name }}</option>
       </select>
     </div>
   </li>
@@ -25,11 +25,11 @@
     <tbody>
       <tr *ngFor="let tarea of tareasFiltradas">
         <td>{{ tarea.id }}</td>
-        <td>{{ tarea.titulo }}</td>
-        <td>{{ tarea.descripcion }}</td>
-        <td>{{ tarea.usuarioAsignado }}</td>
-        <td>{{ tarea.fechaInicio | date:'dd/MM/yyyy' }}</td>
-        <td>{{ tarea.fechaFin | date:'dd/MM/yyyy' }}</td>
+        <td>{{ tarea.name }}</td>
+        <td>{{ tarea.description }}</td>
+        <td>{{ tarea.contactName }}</td>
+        <td>{{ tarea.startDate | date:'dd/MM/yyyy' }}</td>
+        <td>{{ tarea.endDate | date:'dd/MM/yyyy' }}</td>
       </tr>
     </tbody>
   </table>

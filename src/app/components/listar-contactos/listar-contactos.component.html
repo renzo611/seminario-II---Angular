@@ -20,9 +20,9 @@
       <tbody>
         <tr *ngFor="let contacto of contactos">
           <td>{{ contacto.id }}</td>
-          <td>{{ contacto.nombre }}</td>
+          <td>{{ contacto.name }}</td>
           <td>{{ contacto.email }}</td>
-          <td>{{ contacto.telefono }}</td>
+          <td>{{ contacto.phone }}</td>
           <td>
             <button class="btn btn-primary btn-sm me-3" (click)="editarContacto(contacto)">Editar</button>
             <button class="btn btn-danger btn-sm" (click)="eliminarContacto(contacto.id)">Eliminar</button>

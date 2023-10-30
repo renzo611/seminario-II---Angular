@@ -4,14 +4,15 @@ import { ListarContactosComponent } from './components/listar-contactos/listar-c
 import { ListarTareasComponent } from './components/listar-tareas/listar-tareas.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { AuthComponent } from './components/auth/auth.component';
+import { AuthGuard } from './guard/auth.guard';
 
 
 const routes = [
   {
-    path: 'contactos', component : ListarContactosComponent
+    path: 'contactos', component : ListarContactosComponent, canActivate: [AuthGuard]
   },
   {
-    path: 'tareas' , component: ListarTareasComponent
+    path: 'tareas' , component: ListarTareasComponent, canActivate: [AuthGuard]
   },
   {
     path: 'registro', component: RegistroComponent

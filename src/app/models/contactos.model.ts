@@ -1,6 +1,7 @@
 export class Contacto {
+    userId!: number;
     id!: number;
-    nombre!: string;
+    name!: string;
     email!: string;
-    telefono!: string;
+    phone!: string;
 }

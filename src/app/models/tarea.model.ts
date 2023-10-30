@@ -2,9 +2,11 @@ import { Contacto } from "./contactos.model";
 
 export class Tarea{
     id!: number;
-    descripcion!: string;
-    titulo! : string;
-    fechaInicio!: Date;
-    fechaFin!: Date;
-    usuarioAsignado!: string;
+    userId!: number;
+    description!: string;
+    name! : string;
+    startDate!: Date;
+    endDate!: Date;
+    contactName!: string;
+    contactId!: string;
 }

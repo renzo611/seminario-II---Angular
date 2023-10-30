@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../components/auth/auth.service';
 
 @Component({
   selector: 'app-cabecera',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./cabecera.component.css']
 })
 export class CabeceraComponent {
+  isLoggin!: boolean;
+  constructor(private readonly authService: AuthService) {
+    this.isLoggin = authService.isLogin();
+  }
 
 }
